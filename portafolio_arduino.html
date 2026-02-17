@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portafolio Arduino //// creado por Jesús Jair Ruíz Salinas, Edwin David Navarro Chacon, Diego Rafael Villegas Jimenez</title>
+    <title>Portafolio Arduino | Jesús, Edwin y Diego</title>
     <style>
         * {
             margin: 0;
@@ -13,11 +13,11 @@
 
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: white;
+            background: #fdfdfd;
             min-height: 100vh;
         }
 
-        /* Hero Section */
+        /* Hero Section - Estilo Arduino */
         .hero {
             height: 100vh;
             display: flex;
@@ -28,27 +28,7 @@
             color: white;
             position: relative;
             overflow: hidden;
-            background: linear-gradient(135deg, #306998 0%, #FFD43B 100%);
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-image: url('https://www.python.org/static/community_logos/python-logo-master-v3-TM.png');
-            background-repeat: no-repeat;
-            background-position: center;
-            background-size: 500px;
-            opacity: 0.1;
-            animation: wave 15s ease-in-out infinite;
-        }
-
-        @keyframes wave {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-20px); }
+            background: linear-gradient(135deg, #00878F 0%, #005C61 100%);
         }
 
         .hero-content {
@@ -57,35 +37,27 @@
         }
 
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         .hero h1 {
             font-size: 4.5rem;
             font-weight: 700;
             margin-bottom: 1rem;
-            text-shadow: 2px 2px 10px rgba(0,0,0,0.3);
         }
 
         .hero .subtitle {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             font-weight: 300;
             margin-bottom: 2rem;
-            opacity: 0.95;
+            opacity: 0.9;
         }
 
-        .python-icon {
-            font-size: 6rem;
-            margin-bottom: 2rem;
+        .arduino-icon {
+            font-size: 5rem;
+            margin-bottom: 1.5rem;
             animation: float 3s ease-in-out infinite;
-            filter: drop-shadow(0 10px 20px rgba(0,0,0,0.3));
         }
 
         @keyframes float {
@@ -93,25 +65,9 @@
             50% { transform: translateY(-15px); }
         }
 
-        .scroll-indicator {
-            position: absolute;
-            bottom: 30px;
-            left: 50%;
-            transform: translateX(-50%);
-            color: white;
-            font-size: 2rem;
-            animation: bounce 2s infinite;
-        }
-
-        @keyframes bounce {
-            0%, 100% { transform: translate(-50%, 0); }
-            50% { transform: translate(-50%, 10px); }
-        }
-
         /* Catalog Section */
         .catalog {
             padding: 80px 20px;
-            background: white;
         }
 
         .container {
@@ -124,196 +80,144 @@
             font-size: 2.5rem;
             color: #2d3748;
             margin-bottom: 3rem;
-            font-weight: 700;
         }
 
         .cards-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 30px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 25px;
         }
 
         .card {
             background: white;
-            border-radius: 15px;
+            border-radius: 12px;
             overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            cursor: pointer;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease;
+            display: flex;
+            flex-direction: column;
         }
 
         .card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+            transform: translateY(-8px);
         }
 
         .card-image {
             width: 100%;
-            height: 200px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 220px;
+            background: #e2e8f0;
             display: flex;
             justify-content: center;
             align-items: center;
-            font-size: 4rem;
-            color: white;
+            overflow: hidden;
+        }
+
+        .card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover; /* Esto hace que la foto llene el espacio sin deformarse */
         }
 
         .card-content {
-            padding: 25px;
+            padding: 20px;
+            flex-grow: 1;
         }
 
         .card-title {
-            font-size: 1.5rem;
-            color: #2d3748;
-            margin-bottom: 15px;
+            font-size: 1.3rem;
+            color: #00878F;
+            margin-bottom: 10px;
             font-weight: 600;
         }
 
         .card-description {
-            color: #718096;
-            line-height: 1.6;
-            margin-bottom: 20px;
+            color: #4a5568;
+            line-height: 1.5;
             font-size: 0.95rem;
         }
 
-        .download-btn {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            width: 100%;
-            padding: 12px 24px;
-            background: linear-gradient(135deg, #306998 0%, #FFD43B 100%);
-            color: white;
-            text-decoration: none;
-            border-radius: 8px;
-            font-size: 1rem;
-            font-weight: 600;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            text-align: center;
+        .tag {
+            display: inline-block;
+            background: #e6fffa;
+            color: #2c7a7b;
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            margin-bottom: 10px;
+            font-weight: bold;
         }
 
-        .download-btn:hover {
-            transform: scale(1.05);
-            box-shadow: 0 5px 15px rgba(48, 105, 152, 0.4);
-        }
-
-        .download-btn:active {
-            transform: scale(0.98);
-        }
-
-        /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 3rem;
-            }
-
-            .hero .subtitle {
-                font-size: 1.3rem;
-            }
-
-            .catalog-title {
-                font-size: 2rem;
-            }
-
-            .cards-grid {
-                grid-template-columns: 1fr;
-            }
+            .hero h1 { font-size: 2.8rem; }
+            .cards-grid { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
-    <!-- Hero Section -->
+
     <section class="hero">
         <div class="hero-content">
-            <div class="python-icon">👾</div>
-            <h1>Arduino</h1>
-            <p class="subtitle">Conceptos basicos y Glosario de materiales</p>
-            <p>Jesús Jair Ruíz Salinas, Edwin David Navarro Chacon, Diego Rafael Villegas Jimenez </p>
+            <div class="arduino-icon">♾️</div>
+            <h1>Arduino Project</h1>
+            <p class="subtitle">Conceptos básicos y Glosario de materiales</p>
+            <p style="font-size: 0.9rem;">Por: Jesús Ruiz, Edwin Navarro y Diego Villegas</p>
         </div>
-        <div class="scroll-indicator">↓</div>
     </section>
 
-    <!-- Catalog Section -->
     <section class="catalog">
         <div class="container">
-            <h2 class="catalog-title">Catálogo de Tareas</h2>
+            <h2 class="catalog-title">Evidencias y Conceptos</h2>
             <div class="cards-grid">
                 
-                <!-- Card 1: Tokenizar -->
                 <div class="card">
-                    <div class="card-image">CONCEPTOS BASICOS 📝</div>
                     <div class="card-content">
-                        <h3 class="card-title">IA</h3>
+                        <span class="tag">TEORÍA</span>
+                        <h3 class="card-title">Conceptos de IA y Electricidad</h3>
                         <p class="card-description">
-                            El campo general de sistemas que imitan a la inteligencia humana.
-                        </p>
-                         <h3 class="card-title">ML</h3>
-                         <p class="card-description">
-                            Subconjunto que aprende de datos sin ser programado explicitamente.
-                        </p>
-                         <h3 class="card-title">DL</h3>
-                         <p class="card-description">
-                            Aprendizaje profundo usando redes neuronales de muchas capas.
-                        </p>
-                         <h3 class="card-title">¿Que es la electricidad?</h3>
-                         <p class="card-description">
-                            Es el flujo de energia que transmite a tra vez de unn material conductor en un circuito.
-                        </p>
-                         <h3 class="card-title">¿Que es un circuito?</h3>
-                         <p class="card-description">
-                            En pocas palabras, es un camino cerrado de un material conductor donde fluyen los elctrones.
-                        </p>
-                         <h3 class="card-title">Corriente elctrica</h3>
-                         <p class="card-description">
-                            La corriente directa fluye en una sola direccion.
-                        </p>
-                         <h3 class="card-title">Corriente alterna</h3>
-                         <p class="card-description">
-                            Como su nombre lo indica invierte su direccion periodicamente.
-                        </p>
-                         <h3 class="card-title">Fuentes y aplicacion de la CD</h3>
-                         <p class="card-description">
-                            Proviene de baterias, pilas, paneles solares, normalmente para alimentar dispositivos electronicos como computadoras, telefonos, etc.
-                        </p>
-                         <h3 class="card-title">Fuentes y aplicacion de la CA</h3>
-                         <p class="card-description">
-                            Proviene de la red electrica, generadores y transformadores, para aliomentar electrodomesticos y motores electricos.
+                            Estudio de la Inteligencia Artificial, Machine Learning y Deep Learning. Además de los fundamentos de corriente alterna (CA) y corriente directa (CD).
                         </p>
                     </div>
                 </div>
 
-                <!-- Card 2: Longitud de Palabras -->
                 <div class="card">
-                    <div class="card-image">Glosario de materiales  👨‍💻</div>
                     <div class="card-content">
-                        <h3 class="card-title">Arduino</h3>
+                        <span class="tag">GLOSARIO</span>
+                        <h3 class="card-title">Materiales Utilizados</h3>
                         <p class="card-description">
-                            Es una plataforma de hardware y software de codigo abierto que permite crear dispositivos electronicos interactivos.
-                        </p>
-                         <h3 class="card-title">LED</h3>
-                         <p class="card-description">
-                            Componente electronico semiconductor que emite luz cuando se alimenta con corriente continua mediante un proceso de electroluminisencia.
-                        </p>
-                         <h3 class="card-title">Sensor de proximidad</h3>
-                         <p class="card-description">
-                            Dispositivo elctronico que detecta la presencia o distancia de objetos sin contacto fisico.
-                        </p>
-                         <h3 class="card-title">Sensor de temperatura</h3>
-                         <p class="card-description">
-                            Dispositivo que mide el calor del ambiente, liquidos o superficies y lo convierte en una señal electrica (tension o resistencia) para monitorear y controlar sistemas.
-                        </p>
-                         <h3 class="card-title">Resistencia</h3>
-                         <p class="card-description">
-                            Componente que limita el flujo de corriente en un circuito y transforma energia electrica en calor. Su valor se determina por un codigo de colores.
+                            Uso de la placa Arduino, LEDs, Resistencias (limitadoras de corriente) y sensores de temperatura y proximidad para interactuar con el entorno.
                         </p>
                     </div>
                 </div>
 
-               
+                <div class="card">
+                    <div class="card-image">
+                        <img src="serie.jpg" alt="Circuito en Serie en Tinkercad">
+                    </div>
+                    <div class="card-content">
+                        <span class="tag">PRÁCTICA 01</span>
+                        <h3 class="card-title">Circuito en Serie</h3>
+                        <p class="card-description">
+                            Configuración de componentes en un solo lazo. La corriente es la misma en todos los puntos, pero el voltaje se divide.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <div class="card-image">
+                        <img src="paralelo.jpg" alt="Circuito en Paralelo en Tinkercad">
+                    </div>
+                    <div class="card-content">
+                        <span class="tag">PRÁCTICA 02</span>
+                        <h3 class="card-title">Circuito en Paralelo</h3>
+                        <p class="card-description">
+                            Configuración donde cada LED tiene su propio camino. Esto permite que todos funcionen con el voltaje total de la batería.
+                        </p>
+                    </div>
+                </div>
+
             </div>
         </div>
     </section>
+
 </body>
 </html>
